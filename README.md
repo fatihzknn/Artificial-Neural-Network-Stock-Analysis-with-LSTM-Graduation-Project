@@ -1,95 +1,80 @@
+# Stock Price Prediction (LSTM) - ASELSAN, THY, TUPRS, EREGL, CIMSA
 
+This project aims to predict the stock prices of ASELSAN, Turkish Airlines, Pegasus, Ereğli Demir ve Çelik, and Çimsa listed on BIST100 using the LSTM (Long Short-Term Memory) model.
 
-# Financial Analysis and Stock Prediction Using LSTM Neural Networks
+## 📄 Project Summary
 
-## Project Overview
+In this project, future stock prices were predicted using daily closing prices from February 2, 2015, to the present. Separate models were created for each stock, with 80% of the data used for training and 20% for testing.
 
-This repository contains the code and documentation for my final project at Doğuş University. The project focuses on financial analysis and stock price prediction using Long Short-Term Memory (LSTM) neural networks. The goal is to predict BIST30 stock prices based on historical data, with a specific focus on stocks such as THYAO.IS and TUPRS.IS.
+## 🛠️ Tools and Libraries Used
 
-## Table of Contents
+- **Python**
+- **Pandas**: Data processing and analysis
+- **NumPy**: Numerical computations
+- **Matplotlib and Seaborn**: Data visualization
+- **Scikit-Learn**: Data preprocessing and evaluation metrics
+- **TensorFlow/Keras**: LSTM model creation
+- **Yahoo Finance API**: Fetching stock data
 
-- [Project Overview](#project-overview)
-- [Technologies Used](#technologies-used)
-- [Features](#features)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Results](#results)
-- [Contributing](#contributing)
-- [Acknowledgements](#acknowledgements)
-- [Contact](#contact)
+## ⚙️ Methodology
 
-## Technologies Used
+- **Data Collection**: The stock data for ASELSAN, THY, Pegasus, Ereğli Demir ve Çelik, and Çimsa was obtained using the Yahoo Finance API.
+- **Data Preprocessing**: The data was normalized to a 0-1 range using MinMaxScaler and split into training and test sets.
+- **Model Creation**: A 3-layer LSTM model was created. The first two layers consist of 100 neurons each, while the final layer is a Dense(1) layer producing a single output. The model was compiled using the "adam" optimizer and "mean squared error" loss function.
+- **Model Training**: The model was trained for 100 epochs with 16 data points per batch. 
+- **Evaluation**: The model was evaluated using metrics such as R-Squared (R2), Root Mean Squared Error (RMSE), Mean Absolute Percentage Error (MAPE), and Mean Absolute Error (MAE).
 
-- **Programming Language:** Python
-- **Libraries:** TensorFlow, Keras, Pandas, NumPy, Matplotlib, Seaborn
-- **Tools:** Jupyter Notebooks, Google Colab
+## 🖼️ Visualizations
 
-## Features
+Below are the graphs showing the model's performance on the training and test datasets for each stock:
 
-- Data preprocessing and feature engineering
-- Development and training of LSTM neural network models
-- Financial data analysis and visualization
-- Performance evaluation and comparison with traditional models
-- Prediction of stock prices for THYAO.IS and TUPRS.IS
+- **ASELSAN**
+  ![ASELSAN Training and Test Data](assets/aselsTrainTest.png)
 
-## Installation
+- **Turkish Airlines**
+  ![THYO Training and Test Data](assets/thyaoTrainTest.png)
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/financial-analysis-lstm.git
-   cd financial-analysis-lstm
-   ```
+- **Pegasus**
+  ![TUPRS Training and Test Data](assets/tuprsTrainTest.png)
 
-2. Create a virtual environment and activate it:
-   ```bash
-   python3 -m venv venv
-   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-   ```
+- **Ereğli Demir ve Çelik**
+  ![EREGL Training and Test Data](assets/ereglTrainTest.png)
 
-3. Install the required packages:
-   ```bash
-   pip install -r requirements.txt
-   ```
+- **Çimsa**
+  ![CIMSA Training and Test Data](assets/cmsaTrainTest.png)
 
-## Usage
+## 🔍 Findings
 
-1. Open the Jupyter Notebook:
-   ```bash
-   jupyter notebook
-   ```
+After training the LSTM model, the following results were obtained on the test data:
 
-2. Navigate to the `notebooks` directory and open the main notebook file `Financial_Analysis_and_Stock_Prediction.ipynb`.
+| Stock      | RMSE | MAE  | R2   | MAPE  |
+|------------|------|------|------|-------|
+| ASELS      | 1.52 | 1.08 | 0.98 | 3.37% |
+| THYAO      | 5.14 | 3.61 | 0.99 | 2.34% |
+| TUPRS      | 4.00 | 2.74 | 0.99 | 2.82% |
+| EREGL      | 1.65 | 1.22 | 0.91 | 3.16% |
+| CIMSA      | 0.90 | 0.56 | 0.99 | 2.79% |
 
-3. Follow the steps in the notebook to preprocess the data, train the model, and evaluate the results.
+These results show that the model is successful in predicting stock prices.
 
-4. Alternatively, you can run the notebook in Google Colab. Open the following link and upload the notebook file:
-   [Google Colab](https://colab.research.google.com/)
+## 📊 Predictions and Visualizations
 
-## Results
+In this section, I present the visualizations of the predictions compared to the actual values for the selected stocks. The figures below illustrate the performance of the model on the test data:
 
-The project achieved significant improvements in stock price prediction accuracy through various performance metrics:
+- **ASELSAN**
+  ![ASELSAN Predictions](assets/aselsPred.png)
 
-- **Mean Squared Error (MSE):** 15.98
-- **Root Mean Squared Error (RMSE):** 4.00
-- **Mean Absolute Error (MAE):** 2.74
-- **R-squared (R²):** 0.99
-- **Mean Absolute Percentage Error (MAPE):** 2.82%
+- **Turkish Airlines**
+  ![THYO Predictions](assets/thyaoPred.png)
 
-These metrics demonstrate the model's effectiveness in capturing complex patterns in stock price data, resulting in more accurate predictions.
+- **Pegasus**
+  ![TUPRS Predictions](assets/tuprsPred.png)
 
-## Contributing
+- **Ereğli Demir ve Çelik**
+  ![EREGL Predictions](assets/ereglPred.png)
 
-Contributions are welcome! Please feel free to submit a pull request or open an issue if you have any suggestions or improvements.
+- **Çimsa**
+  ![CIMSA Predictions](assets/cimsaPred.png)
 
-
-## Acknowledgements
-
-I would like to thank my professors and mentors at Doğuş University for their guidance and support throughout this project. Special thanks to my colleagues and friends who provided valuable feedback and assistance.
-
-## Contact
-
-Fatih Han Özkan  
-Email: fatihhanozkn@gmail.com  
-LinkedIn: [fatihzknn](https://www.linkedin.com/in/fatihzknn/)  
-GitHub: [fatihzknn](https://github.com/fatihzknn)
+Each figure shows the training data (in blue) and the test data (in red). The predictions made by the model closely follow the actual values, demonstrating the accuracy and robustness of the model.
 
